@@ -1,0 +1,33 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns":["bin","docs","lib","scripts","src","tools"]
+		},
+		{
+			"path": "bin",
+			"name": "Executable"
+		},
+		{
+			"path": "docs",
+			"name": "Documentation"
+		},
+		{
+			"path": "lib",
+			"name": "Library"
+		},
+		{
+			"path": "scripts",
+			"name": "Scripts"
+		},
+		{
+			"path": "src",
+			"name": "Sources"
+		},
+		{
+			"path": "tools",
+			"name": "Tools"
+		}
+	]
+}
