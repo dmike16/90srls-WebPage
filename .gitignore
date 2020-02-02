@@ -65,3 +65,6 @@ ssl.location.json
 #js in src
 dist/
 build/
+
+#sublime workspace
+*.sublime-workspace
