@@ -1,12 +1,15 @@
 {
   "libs": [
-    "browser"
+    "browser",
+    "ecmascript",
+    "react"
   ],
   "plugins": {
      "node": {},
      "modules": {},
      "requirejs": {},
      "es_modules": {},
-     "jasmine": {}
+     "jasmine": {},
+     "jsx": {}
   }
 }
