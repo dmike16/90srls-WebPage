@@ -2,9 +2,9 @@ import pkg from "../../../lib/package";
 import { hashFormatStyle, sourceMapStyle, mainFiledsResolve, ModeStyle } from "./utils";
 import * as webpack from "webpack";
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-export default function (mode: ModeStyle): webpack.Configuration {
+export default function(mode: ModeStyle): webpack.Configuration {
     const hashStyle = hashFormatStyle(mode === 'development' ? 'none' : 'all');
     return {
         mode, // development or production,
@@ -36,7 +36,7 @@ export default function (mode: ModeStyle): webpack.Configuration {
             ]
         },
         plugins: [
-            new CleanWebpackPlugin(pkg.buildCtx.output.app, { root: pkg.root }),
+            new CleanWebpackPlugin(),
             mode === 'development' ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin(),
             new webpack.ProgressPlugin()
         ]

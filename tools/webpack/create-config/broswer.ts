@@ -72,10 +72,10 @@ export default function (mode: ModeStyle): webpack.Configuration {
                 template: "index.html",
                 xhtml: true
             }),
-            new workbox.InjectManifest({
-                swSrc: './src/studio90srls-sw.js',
-                swDest: 'studio90srls-sw.js'
-            })
+            // new workbox.InjectManifest({
+            //     swSrc: './studio90srls-sw.js',
+            //     swDest: 'studio90srls-sw.js'
+            // })
         ]
     };
 }
