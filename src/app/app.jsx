@@ -1,14 +1,16 @@
-// @flow
+//@flow
 
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { useTranslation } from 'react-i18next';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { useTranslation } from "react-i18next";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { hot } from "react-hot-loader/root";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
-import './i18n';
+import "./i18n";
+import { reducer, initialPreferences } from "./preferences";
+import useAppTheme from "./app-theme";
 /**
  * bootstrap function
  * @return {void}
@@ -50,9 +52,12 @@ function intallSW(name: string) {
  */
 function Studio90srls(props) {
   const [t, i18n] = useTranslation();
+  const [state, dispatch] = React.useReducer(reducer, {}, initialPreferences);
+  const theme = useAppTheme(state.theme);
+
   return (
-    <ThemeProvider theme="">
-      <p>{t('refactoring')}</p>
+    <ThemeProvider theme={theme}>
+      <p>{t("refactoring")}</p>
     </ThemeProvider>
   );
 }

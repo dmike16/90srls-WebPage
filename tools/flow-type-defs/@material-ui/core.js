@@ -17,6 +17,10 @@ declare module "@material-ui/core/AppBar" {
   declare module.exports: $Exports<"@material-ui/core/AppBar/AppBar">;
 }
 
+declare module "@material-ui/core/useMediaQuery" {
+  declare module.exports: $Exports<"@material-ui/core/useMediaQuery">;
+}
+
 declare module "@material-ui/core/Avatar/Avatar" {
   import type {ComponentType, Element, ElementType} from "react";
 
@@ -3153,6 +3157,9 @@ declare module "@material-ui/core/colors" {
 }
 
 // Filename aliases
+declare module "@material-ui/core/useMediaQuery.js" {
+  declare module.exports: $Exports<"@material-ui/core/useMediaQuery">;
+}
 declare module "@material-ui/core/AppBar/AppBar.js" {
   declare module.exports: $Exports<"@material-ui/core/AppBar/AppBar">;
 }
