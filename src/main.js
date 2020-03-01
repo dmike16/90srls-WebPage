@@ -1,4 +1,4 @@
 // @flow
-import Studio90srls from './app/app';
+import { bootstrap } from "./app/app";
 
-Studio90srls.bootstrap();
+bootstrap();

@@ -12,10 +12,10 @@ export type PkgEnv = {
         config: string;
         output: { [key: string]: any };
         entryPoints: { [key: string]: any };
-        styles: Array<{ name: string; path: string; }>;
-        assets: Array<{ src: string; dest: string; glob: string; ignore?: string }>;
+        styles: { name: string; path: string; }[];
+        assets: { src: string; dest: string; glob: string; ignore?: string }[];
         target: 'es5' | 'es2015';
-        enviromentModules: Array<{ prod: string; dev: string }>;
+        enviromentModules: { prod: string; dev: string }[];
         extractCss: boolean;
         optimizeCss: boolean;
         inlineSource: boolean;
@@ -35,7 +35,7 @@ export default {
             main: ['react-hot-loader/patch', './main.js'],
             polyfill: './polyfill.js'
         },
-        styles: [{ name: 'app', path: './app/app.scss' }],
+        styles: [],
         assets: [{
             src: './assets/images/icon/tab', glob: '*.ico',
             dest: 'assets/images/icon/tab'

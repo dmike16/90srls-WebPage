@@ -34,6 +34,8 @@ export default function (mode: ModeStyle): webpack.Configuration {
                         plugins: [
                             "@babel/plugin-syntax-dynamic-import",
                             "@babel/plugin-proposal-class-properties",
+                            "@babel/plugin-proposal-export-default-from",
+                            "@babel/plugin-proposal-export-namespace-from",
                             "react-hot-loader/babel"]
                     }
                 }
