@@ -3,7 +3,7 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 import { useTranslation } from 'react-i18next';
-
+import { ThemeProvider } from '@material-ui/core/styles';
 import { hot } from "react-hot-loader/root";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -51,9 +51,9 @@ function intallSW(name: string) {
 function Studio90srls(props) {
   const [t, i18n] = useTranslation();
   return (
-    <React.Fragment>
+    <ThemeProvider theme="">
       <p>{t('refactoring')}</p>
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 
