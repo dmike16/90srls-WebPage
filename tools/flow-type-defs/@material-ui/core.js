@@ -2000,6 +2000,17 @@ declare module "@material-ui/core/styles/createMixins" {
   ) => Mixins;
 }
 
+declare module "@material-ui/core/styles/responsiveFontSizes" {
+  declare module.exports: (theme: Theme, options?: FontSizesOptions) => Theme; 
+
+  declare export type FontSizesOptions = {
+    breakpoints?: BreakpointsOptions,
+    disableAlign?: boolean,
+    factor?: number,
+    variant?: string[]
+  };
+}
+
 declare module "@material-ui/core/styles/createMuiTheme" {
   import type {Palette, PaletteOptions} from "@material-ui/core/styles/createPalette";
   import type {Typography, TypographyOptions} from "@material-ui/core/styles/createTypography";
@@ -2409,6 +2420,7 @@ declare module "@material-ui/core/styles" {
     withTheme: $Exports<"@material-ui/core/styles/withTheme">,
     createGenerateClassName: $Exports<"@material-ui/core/styles/createGenerateClassName">,
     createMuiTheme: $Exports<"@material-ui/core/styles/createMuiTheme">,
+    responsiveFontSizes: $Exports<"@material-ui/core/styles/responsiveFontSizes">,
     jssPreset: $Exports<"@material-ui/core/styles/jssPreset">
   };
 }
@@ -3773,6 +3785,9 @@ declare module "@material-ui/core/styles/createMixins.js" {
 }
 declare module "@material-ui/core/styles/createMuiTheme.js" {
   declare module.exports: $Exports<"@material-ui/core/styles/createMuiTheme">;
+}
+declare module "@material-ui/core/styles/responsiveFontSizes.js" {
+  declare module.exports: $Exports<"@material-ui/core/styles/responsiveFontSizes">;
 }
 declare module "@material-ui/core/styles/createPalette.js" {
   declare module.exports: $Exports<"@material-ui/core/styles/createPalette">;
