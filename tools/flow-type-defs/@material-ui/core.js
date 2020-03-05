@@ -2011,6 +2011,13 @@ declare module "@material-ui/core/styles/responsiveFontSizes" {
   };
 }
 
+declare module "@material-ui/core/locale" {
+  declare module.exports: {
+    itIT: any,
+    enUS: any
+  };
+}
+
 declare module "@material-ui/core/styles/createMuiTheme" {
   import type {Palette, PaletteOptions} from "@material-ui/core/styles/createPalette";
   import type {Typography, TypographyOptions} from "@material-ui/core/styles/createTypography";
@@ -2052,7 +2059,7 @@ declare module "@material-ui/core/styles/createMuiTheme" {
     zIndex: ZIndex
   };
 
-  declare module.exports: (options?: ThemeOptions) => Theme;
+  declare module.exports: (options?: ThemeOptions, ...args?: Array<any>) => Theme;
 }
 
 declare module "@material-ui/core/styles/createPalette" {

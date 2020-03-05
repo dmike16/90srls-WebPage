@@ -4,8 +4,9 @@ import { useMemo } from "react";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { itIT, enUS } from "@material-ui/core/locale";
 
-function useAppTheme(type: "dark" | "light" | null) {
+function useAppTheme(type: "dark" | "light" | null, locale: 'it-IT' | 'en-US') {
 	const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
 	let theme = useMemo(
@@ -26,8 +27,8 @@ function useAppTheme(type: "dark" | "light" | null) {
 						contrastText: "#000"
 					}
 				}
-			}),
-		[prefersDarkMode, type]
+			}, locale === 'it-IT' ? itIT: enUS),
+		[prefersDarkMode, type, locale]
 	);
 	theme = responsiveFontSizes(theme);
 
