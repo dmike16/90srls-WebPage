@@ -1,16 +1,30 @@
 import { readFileSync } from "fs";
+import { ModeStyle } from "./utils";
+import * as webpack from "webpack";
 
-export default function (cert: string, key: string, hot = true): { devServer: any } {
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+
+export default function(
+    cert: string,
+    key: string,
+    mode: ModeStyle
+): webpack.Configuration {
     return {
         devServer: {
-            host: 'localhost',
-            publicPath: '/',
-            https: key && cert ? {
-                key: readFileSync(key),
-                cert: readFileSync(cert)
-            } : false,
+            host: "localhost",
+            publicPath: "/",
+            https:
+                key && cert
+                    ? {
+                          key: readFileSync(key),
+                          cert: readFileSync(cert)
+                      }
+                    : false,
             port: 4200,
-            hot
-        }
-    };
+            hot: mode === "development"
+        },
+        plugins: [...(mode === "development" ? [new ReactRefreshWebpackPlugin({
+            disableRefreshCheck: true
+        })] : [])]
+    } as any;
 }

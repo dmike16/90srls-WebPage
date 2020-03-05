@@ -24,7 +24,7 @@ export default async function (args: any, log: Logger) {
         , styles(mode)
         , broswer(mode)
         , babel(mode)
-        , serve(cert, key, mode === 'development')
+        , serve(cert, key, mode)
     ];
 
     try {

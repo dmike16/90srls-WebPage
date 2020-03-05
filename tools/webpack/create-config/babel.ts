@@ -2,8 +2,10 @@ import { ModeStyle } from "./utils";
 import * as webpack from "webpack";
 import pkg from "../../../lib/package";
 
-export default function (mode: ModeStyle): webpack.Configuration {
-    const enviromentAlias = pkg.buildCtx.enviromentModules.reduce<{ [key: string]: string }>((acc, m) => {
+export default function(mode: ModeStyle): webpack.Configuration {
+    const enviromentAlias = pkg.buildCtx.enviromentModules.reduce<{
+        [key: string]: string;
+    }>((acc, m) => {
         acc[m.dev] = m.prod;
         return acc;
     }, {});
@@ -20,23 +22,29 @@ export default function (mode: ModeStyle): webpack.Configuration {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            ["@babel/preset-env",
+                            [
+                                "@babel/preset-env",
                                 {
                                     targets: {
                                         esmodules: true
                                     },
                                     modules: false,
-                                    useBuiltIns: 'entry',
-                                    corejs: '3.2.1'
-                                }],
+                                    useBuiltIns: "entry",
+                                    corejs: "3.2.1"
+                                }
+                            ],
                             "@babel/preset-flow",
-                            "@babel/preset-react"],
+                            "@babel/preset-react"
+                        ],
                         plugins: [
                             "@babel/plugin-syntax-dynamic-import",
                             "@babel/plugin-proposal-class-properties",
                             "@babel/plugin-proposal-export-default-from",
                             "@babel/plugin-proposal-export-namespace-from",
-                            "react-hot-loader/babel"]
+                            ...(mode === "development"
+                                ? ["react-refresh/babel"]
+                                : [])
+                        ]
                     }
                 }
             ]

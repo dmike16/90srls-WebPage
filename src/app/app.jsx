@@ -1,12 +1,13 @@
 //@flow
 
-import * as ReactDOM from "react-dom";
-import * as React from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { hot } from "react-hot-loader/root";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
 
 import "./i18n";
 import { reducer, initialPreferences } from "./preferences";
@@ -50,17 +51,18 @@ function intallSW(name: string) {
 /**
  * Studio90srls main function componet
  */
-function Studio90srls(props) {
+function Studio90srls(props: any) {
   const [t, i18n] = useTranslation();
   const [state, dispatch] = React.useReducer(reducer, {}, initialPreferences);
-  const theme = useAppTheme(state.theme);
+  const theme = useAppTheme(state.theme, i18n.language);
 
   return (
     <ThemeProvider theme={theme}>
-      <p>{t("refactoring")}</p>
+      <CssBaseline />
+      <Typography variant="body2">{t("refactoring")}</Typography>
     </ThemeProvider>
   );
 }
 
 export { bootstrap };
-export default hot(Studio90srls);
+export default Studio90srls;

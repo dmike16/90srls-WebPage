@@ -17,7 +17,6 @@ export function webpackServer(webpackConfig: webpack.Configuration): Promise<str
     });
 
     const options = (webpackConfig as any).devServer;
-    Server.addDevServerEntrypoints(webpackConfig, options);
 
     return new Promise((resolve, reject) => {
         let compiler: any = null;
