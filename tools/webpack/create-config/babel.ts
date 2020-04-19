@@ -1,6 +1,8 @@
 import { ModeStyle } from "./utils";
 import * as webpack from "webpack";
 import pkg from "../../../lib/package";
+import  ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 
 export default function(mode: ModeStyle): webpack.Configuration {
     const enviromentAlias = pkg.buildCtx.enviromentModules.reduce<{
@@ -17,7 +19,7 @@ export default function(mode: ModeStyle): webpack.Configuration {
         module: {
             rules: [
                 {
-                    test: /\.jsx?$/,
+                    test: /\.tsx?$/,
                     exclude: /(node_modules|bower_components)/,
                     loader: "babel-loader",
                     options: {
@@ -34,7 +36,8 @@ export default function(mode: ModeStyle): webpack.Configuration {
                                 }
                             ],
                             "@babel/preset-flow",
-                            "@babel/preset-react"
+                            "@babel/preset-react",
+                            ["@babel/preset-typescript", {onlyRemoveTypeImports: true}]
                         ],
                         plugins: [
                             "@babel/plugin-syntax-dynamic-import",
@@ -48,6 +51,9 @@ export default function(mode: ModeStyle): webpack.Configuration {
                     }
                 }
             ]
-        }
+        },
+        plugins: [new ForkTsCheckerWebpackPlugin({
+            tsconfig: pkg.buildCtx.config
+        })]
     };
 }

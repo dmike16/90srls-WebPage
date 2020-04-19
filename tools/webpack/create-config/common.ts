@@ -18,7 +18,7 @@ export default function(mode: ModeStyle): webpack.Configuration {
         devtool: sourceMapStyle(mode),
         // development :'cheap-module-eval-source-map' -- production:'cheap-module-source-map',
         resolve: {
-            extensions: ['.js', '.jsx'],
+            extensions: ['.ts', '.tsx', '.js'],
             mainFields: mainFiledsResolve(pkg.buildCtx.target)
         },
         module: {

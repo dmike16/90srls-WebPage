@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./build/app",
+    "types": [
+      "node",
+      "react-dom",
+      "react"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "jsx": "react"
+  },
+  "files": [
+    "main.ts",
+    "polyfill.ts"
+  ],
+  "include": [
+    "./**/*.d.ts"
+  ]
+}

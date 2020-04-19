@@ -6,7 +6,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { itIT, enUS } from "@material-ui/core/locale";
 
-function useAppTheme(type: "dark" | "light" | null, locale: 'it-IT' | 'en-US') {
+function useAppTheme(type: "dark" | "light" | null, locale: string) {
 	const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
 	let theme = useMemo(

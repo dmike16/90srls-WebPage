@@ -4,7 +4,7 @@ export type Preferences = {
 	// TODO: add cookies pref model
 }
 
-export interface Action<K: string, T> {
+export interface Action<K extends string, T> {
 	type: K;
 	payload: T;
 }

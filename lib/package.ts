@@ -29,11 +29,11 @@ export default {
     buildCtx: {
         src: join(root, 'src'),
         output: { parent: join(root, 'build'), app: join(root, 'build', 'ux') },
-        config: 'tsconfig-app.json',
+        config: 'tsconfig.app.json',
         target: 'es2015',
         entryPoints: {
-            main: './main.js',
-            polyfill: './polyfill.js'
+            main: './main.ts',
+            polyfill: './polyfill.ts'
         },
         styles: [],
         assets: [{

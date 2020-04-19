@@ -11,10 +11,12 @@
     "target": "esnext",
     "module": "commonjs",
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types"
     ],
     "lib": [
-      "esnext"
-    ]
+      "esnext",
+      "dom"
+    ],
+    "jsx": "react"
   }
 }

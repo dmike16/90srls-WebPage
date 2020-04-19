@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import "./i18n";
 import { reducer, initialPreferences } from "./preferences";
 import useAppTheme from "./app-theme";
+import Sd90srlsHeader from "./header/header";
 /**
  * bootstrap function
  * @return {void}
@@ -29,7 +30,7 @@ function bootstrap() {
     intallSW("/studio90srls-sw.js");
   }
   library.add(fab);
-  const rootContainer = (document.getElementById("main-container"): any);
+  const rootContainer = (document.getElementById("main-container") as any);
   ReactDOM.render(<Studio90srls />, rootContainer);
 }
 
@@ -59,6 +60,7 @@ function Studio90srls(props: any) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Sd90srlsHeader/>
       <Typography variant="body2">{t("refactoring")}</Typography>
     </ThemeProvider>
   );

@@ -1,6 +1,6 @@
 //@flow
 
-import { type Preferences, Action } from "./preferences-model";
+import type { Preferences, Action } from "./preferences-model";
 import * as ACTIONS from "./preferences-actions";
 import * as REDUCERS from "./preferences-reducers";
 
