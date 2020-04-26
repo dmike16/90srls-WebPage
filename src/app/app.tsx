@@ -1,7 +1,7 @@
 //@flow
 
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { library } from "@fortawesome/fontawesome-svg-core";

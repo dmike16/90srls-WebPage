@@ -16,8 +16,5 @@
   "files": [
     "main.ts",
     "polyfill.ts"
-  ],
-  "include": [
-    "./**/*.d.ts"
   ]
 }

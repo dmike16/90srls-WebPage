@@ -18,5 +18,8 @@
       "dom"
     ],
     "jsx": "react"
-  }
+  },
+    "include": [
+    "./**/*.d.ts"
+  ]
 }
