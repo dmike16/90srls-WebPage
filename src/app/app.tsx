@@ -15,7 +15,7 @@ import useAppTheme from "./app-theme";
 import Sd90srlsHeader from "./header/header";
 /**
  * bootstrap function
- * @return {void}
+ * @return void
  */
 function bootstrap() {
   console.log(
@@ -41,10 +41,10 @@ function intallSW(name: string) {
       serviceWorker
         .register(name, { scope: "./" })
         .then(registration => {
-          console.log("SW registered: ", registration);
+          console.info("SW registered: ", registration);
         })
         .catch(registrationError => {
-          console.log("SW registration failed: ", registrationError);
+          console.error("SW registration failed: ", registrationError);
         });
     });
   }
