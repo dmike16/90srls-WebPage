@@ -13,6 +13,7 @@ import "./i18n";
 import { reducer, initialPreferences } from "./preferences";
 import useAppTheme from "./app-theme";
 import Sd90srlsHeader from "./header/header";
+import {loggerConfig} from "./miscellaneous";
 /**
  * bootstrap function
  * @return void
@@ -24,8 +25,10 @@ function bootstrap() {
     "color:#14BD4C;font-size:1em;"
   );
   if (!process.env.PROD) {
+    configureLogger(loggerConfig.LOGGER_PACKAGE.root, loggerConfig.DEV_LOG_LEVEL);
     console.log("%cDeveloping mode enabled\n", "color:#a91839;font-size:1em;");
   } else {
+    configureLogger(loggerConfig.LOGGER_PACKAGE.root, loggerConfig.PROD_LOG_LEVEL);
     // Install service worker
     intallSW("/studio90srls-sw.js");
   }
@@ -64,6 +67,13 @@ function Studio90srls(props: any) {
       <Typography variant="body2">{t("refactoring")}</Typography>
     </ThemeProvider>
   );
+}
+
+/**
+ * Configure app logging
+ */
+function configureLogger(name: string, level: 'INFO' | 'ERROR' | 'WARN'): void {
+    localStorage.setItem(name, level);
 }
 
 export { bootstrap };

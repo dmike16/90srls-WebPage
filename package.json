@@ -85,6 +85,7 @@
     "i18next-browser-languagedetector": "^4.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.3.4"
+    "react-i18next": "^11.3.4",
+    "react-logger-lib": "^1.0.5"
   }
 }
