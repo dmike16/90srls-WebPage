@@ -14,6 +14,7 @@ import { reducer, initialPreferences } from "./preferences";
 import useAppTheme from "./app-theme";
 import Sd90srlsHeader from "./header/header";
 import {loggerConfig} from "./miscellaneous";
+import Sd90srlsFooter from "./footer/footer";
 /**
  * bootstrap function
  * @return void
@@ -34,6 +35,9 @@ function bootstrap() {
   }
   library.add(fab);
   const rootContainer = (document.getElementById("main-container") as any);
+  rootContainer.style.display='flex';
+  rootContainer.style.flexDirection='column';
+  rootContainer.style.minHeight='100vh';
   ReactDOM.render(<Studio90srls />, rootContainer);
 }
 
@@ -65,6 +69,7 @@ function Studio90srls(props: any) {
       <CssBaseline />
       <Sd90srlsHeader/>
       <Typography variant="body2">{t("refactoring")}</Typography>
+      <Sd90srlsFooter/>
     </ThemeProvider>
   );
 }
