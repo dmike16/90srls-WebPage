@@ -15,11 +15,15 @@ const translation = {
       creative_commons: 'creativecommons.org/about',
       source: 'https://github.com/dmike16/studio90srls',
       links: {
-  
+        sermetra: 'https://sermetra.it',
+        unasca: 'https://unasca.it',
+        cna: 'https://cna.it',
+        motorizzazione: 'https://motorizzazioneroma.it',
+ 
       },
       socials: {
-        facebook: '',
-        google: ''
+        facebook: 'https://it-it.facebook.com/90srls',
+        google: 'https://www.google.com/+90srlsConsulenzaAutomobilisticaRoma'
       }
     }
 	},
