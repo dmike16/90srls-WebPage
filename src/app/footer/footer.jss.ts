@@ -30,6 +30,10 @@ export default function footerJss(theme: Theme) {
       '& > a': {
         marginRight: theme.spacing(1)
       }
+    },
+    socials: {
+      display: 'flex',
+      flexDirection: 'row'
     }
   });
 }
