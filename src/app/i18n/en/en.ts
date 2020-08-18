@@ -5,7 +5,8 @@ const translation = {
     refactoring: 'Refactoring in progress....',
     lang: {
       it: 'Italian',
-      en: 'English'
+      en: 'English',
+      'en-US': 'english'
     },
     header: {
       cookie: 'cookie settings',
