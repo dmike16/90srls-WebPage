@@ -5,14 +5,17 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import Logo from '../logo/logo';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import headerStyles from './header.jss';
-import { Typography, MenuItem, Menu, Button } from '@material-ui/core';
+import { Typography, MenuItem, Menu, Button, useTheme } from '@material-ui/core';
 import { HideOnScroll } from '../miscellaneous';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { supportedLanguages } from '../i18n';
+import { DispatchContext } from '../preferences';
+import { SWITCH_THEME } from '../preferences/theme/theme-action';
 
 const useStyle = makeStyles(headerStyles);
 
@@ -22,6 +25,8 @@ export default function Sd90srlsHeader() {
   const [openLangMenu, setOpenLangMenu] = React.useState(false);
   const [selectedLang, setSelectedLang] = React.useState(i18n.language);
   const anchorRef = React.useRef(null);
+  const dispatch = React.useContext(DispatchContext);
+  const theme = useTheme();
 
   const reactToLangClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setOpenLangMenu(true);
@@ -37,9 +42,19 @@ export default function Sd90srlsHeader() {
     i18n.changeLanguage(supportedLanguages[idx])
   }
 
+  const dispatchThemeAction = (themeType: 'dark' | 'light') => dispatch({type: SWITCH_THEME, payload: themeType});
+  const iconChangeThemeButton = theme.palette.type === 'light' ? 
+    (<IconButton aria-label={t('header.theme')} color="inherit" onClick={() => dispatchThemeAction('dark')}>
+      <Brightness4Icon />
+    </IconButton>) : 
+    (<IconButton aria-label={t('header.theme')} color="inherit" onClick={() => dispatchThemeAction('light')}>
+      <BrightnessHighIcon />
+    </IconButton>)
+
+
   return (
     <HideOnScroll>
-      <AppBar position="sticky">
+      <AppBar position="sticky" className={classes.header}>
         <Toolbar>
           <Logo className={classes.logo} />
           <Typography className={classes.title} variant="h3">
@@ -64,15 +79,13 @@ export default function Sd90srlsHeader() {
               disabled={k === selectedLang}
               selected={k === selectedLang}
               onClick={() => reactToClosLangItem(idx)}>{t(`lang.${k}`)}</MenuItem>)}
-          </Menu>
-          <IconButton aria-label={t('header.cookie')} color="inherit">
-            <MoreVertIcon />
-          </IconButton>
-          <IconButton aria-label={t('header.theme')} color="inherit">
-            <Brightness4Icon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    </HideOnScroll>
-  );
+            </Menu>
+            <IconButton aria-label={t('header.cookie')} color="inherit">
+              <MoreVertIcon />
+            </IconButton>
+            {iconChangeThemeButton}
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+    );
 }

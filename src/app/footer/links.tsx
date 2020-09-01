@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Link, makeStyles} from '@material-ui/core';
 import footerJss from './footer.jss';
+import InsertLinkIcon from '@material-ui/icons/InsertLink';
 
 const useStyle = makeStyles(footerJss); 
 
@@ -16,7 +17,7 @@ export default function Sd90Links(){
   ];
   return (
     <div className={classes.links}>
-      {links.map((link) => <Link key={link.key} href={link.value}>{link.key.toUpperCase()}</Link>)}
+      {links.map((link) => <Link key={link.key} href={link.value} underline='always' color='inherit'><InsertLinkIcon/>{link.key.toUpperCase()}</Link>)}
     </div>
   );
 }

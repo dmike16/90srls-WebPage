@@ -6,7 +6,7 @@ export default function footerJss(theme: Theme) {
       marginTop: 'auto',
       backgroundColor:
       theme.palette.type === 'light' ? 
-      theme.palette.secondary.light : theme.palette.secondary.dark,
+      theme.palette.primary.contrastText : theme.palette.background.paper
     },
     title: {
       flex: '0 0 auto',

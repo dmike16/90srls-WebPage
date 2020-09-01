@@ -10,7 +10,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
 import "./i18n";
-import { reducer, initialPreferences } from "./preferences";
+import { reducer, initialPreferences, DispatchContext } from "./preferences";
 import useAppTheme from "./app-theme";
 import Sd90srlsHeader from "./header/header";
 import {loggerConfig} from "./miscellaneous";
@@ -65,12 +65,14 @@ function Studio90srls(props: any) {
   const theme = useAppTheme(state.theme, i18n.language);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Sd90srlsHeader/>
-      <Typography variant="body2">{t("refactoring")}</Typography>
-      <Sd90srlsFooter/>
-    </ThemeProvider>
+    <DispatchContext.Provider value={dispatch}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Sd90srlsHeader/>
+        <Typography variant="body2">{t("refactoring")}</Typography>
+        <Sd90srlsFooter/>
+      </ThemeProvider>
+    </DispatchContext.Provider>
   );
 }
 
@@ -78,7 +80,7 @@ function Studio90srls(props: any) {
  * Configure app logging
  */
 function configureLogger(name: string, level: 'INFO' | 'ERROR' | 'WARN'): void {
-    localStorage.setItem(name, level);
+  localStorage.setItem(name, level);
 }
 
 export { bootstrap };

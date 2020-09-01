@@ -12,6 +12,11 @@ export default function headerJss(theme: Theme) {
 		},
 		title: {
 			flexGrow: 1
-		}
+		},
+    header: {
+      backgroundColor:
+      theme.palette.type === 'light' ? 
+      theme.palette.primary.main : theme.palette.background.default,
+    }
 	});
 }

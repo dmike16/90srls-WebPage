@@ -17,13 +17,12 @@ export default function Sd90srlsFooter() {
     <footer className={classes.footer}>
       <Container maxWidth="sm">
         <div className={classes.section1}>
-          <Typography variant="h6" className={classes.title}>{t('footer.title')}</Typography>
           <Sd90Links/>
           <div className={classes.socials}>
-            <Link aria-label="facebook" href={t('footer.socials.facebook')}>
+            <Link aria-label="facebook" color='inherit' href={t('footer.socials.facebook')}>
               <FacebookIcon/>
             </Link>
-            <Link aria-label="instagram">
+            <Link aria-label="instagram" color='inherit'>
               <InstagramIcon/>
              </Link>
            </div>

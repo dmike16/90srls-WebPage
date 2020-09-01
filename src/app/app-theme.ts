@@ -1,5 +1,3 @@
-//@flow
-
 import { useMemo } from "react";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
