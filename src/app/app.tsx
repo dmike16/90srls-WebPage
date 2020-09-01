@@ -1,5 +1,3 @@
-//@flow
-
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
@@ -7,7 +5,6 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 
 import "./i18n";
 import { reducer, initialPreferences, DispatchContext } from "./preferences";
@@ -15,6 +12,7 @@ import useAppTheme from "./app-theme";
 import Sd90srlsHeader from "./header/header";
 import {loggerConfig} from "./miscellaneous";
 import Sd90srlsFooter from "./footer/footer";
+import Sd90Main from "./main/main";
 /**
  * bootstrap function
  * @return void
@@ -69,7 +67,7 @@ function Studio90srls(props: any) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Sd90srlsHeader/>
-        <Typography variant="body2">{t("refactoring")}</Typography>
+        <Sd90Main/>
         <Sd90srlsFooter/>
       </ThemeProvider>
     </DispatchContext.Provider>

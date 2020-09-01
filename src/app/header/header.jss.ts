@@ -17,6 +17,9 @@ export default function headerJss(theme: Theme) {
       backgroundColor:
       theme.palette.type === 'light' ? 
       theme.palette.primary.main : theme.palette.background.default,
+    },
+    header_transparent: {
+      backgroundColor: 'transparent'
     }
 	});
 }

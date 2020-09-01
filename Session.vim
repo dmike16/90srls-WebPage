@@ -9,12 +9,12 @@ endif
 set shortmess=aoO
 badd +1 src/main.ts
 badd +43 term://.//4861:/usr/bin/zsh
-badd +68 src/app/app.tsx
+badd +69 src/app/app.tsx
 badd +1 src/app/miscellaneous/logger/configuration.ts
-badd +3 src/app/miscellaneous/index.ts
+badd +1 src/app/miscellaneous/index.ts
 badd +1 src/app/i18n/index.ts
 badd +16 src/app/i18n.ts
-badd +10 src/app/miscellaneous/hide-on-scroll/hide-on-scroll.tsx
+badd +4 src/app/miscellaneous/hide-on-scroll/hide-on-scroll.tsx
 badd +2 src/app/miscellaneous/logger/factory_logic.ts
 badd +3 tsconfig.json
 badd +5 src/declarations/react_logger_lib.ts
@@ -22,11 +22,11 @@ badd +3 src/declarations/react_logger_lib.d.ts
 badd +1 src/declarations/react-logger-lib.d.ts
 badd +8 src/tsconfig.app.json
 badd +2 src/declarations/react-logger-lib/react-logger-lib.d.ts
-badd +51 src/app/header/header.tsx
-badd +9 src/app/logo/logo.tsx
+badd +66 src/app/header/header.tsx
+badd +12 src/app/logo/logo.tsx
 badd +1 src/types/png/png.d.ts
 badd +10 src/app/footer/footer.tsx
-badd +18 src/app/header/header.jss.ts
+badd +20 src/app/header/header.jss.ts
 badd +9 src/app/footer/footer.jss.ts
 badd +9 src/app/i18n/it/it.ts
 badd +13 src/app/footer/copyright.ts
@@ -43,7 +43,7 @@ badd +1 src/app/app-theme.ts
 badd +2 src/app/preferences/theme/theme-action.ts
 badd +2 src/app/preferences/theme/theme-reducer.ts
 badd +0 src/app/socials/socials.tsx
-badd +0 ~/Ideas/ux/studio90srls/.git/index
+badd +5 src/app/main/main.tsx
 argglobal
 %argdel
 set stal=2
@@ -72,12 +72,8 @@ exe s:l
 normal! zt
 20
 normal! 083|
-tabedit ~/Ideas/ux/studio90srls/.git/index
+tabedit src/app/footer/footer.jss.ts
 set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
@@ -85,26 +81,7 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 21 + 23) / 47)
-exe '2resize ' . ((&lines * 21 + 23) / 47)
 argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 10) / 21)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-wincmd w
-argglobal
-if bufexists("src/app/footer/footer.jss.ts") | buffer src/app/footer/footer.jss.ts | else | edit src/app/footer/footer.jss.ts | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -114,15 +91,62 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 10) / 21)
+let s:l = 9 - ((8 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 9
 normal! 040|
-wincmd w
-exe '1resize ' . ((&lines * 21 + 23) / 47)
-exe '2resize ' . ((&lines * 21 + 23) / 47)
+tabedit src/app/app.tsx
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 5 - ((4 * winheight(0) + 21) / 43)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5
+normal! 018|
+tabedit src/app/main/main.tsx
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 11 - ((10 * winheight(0) + 21) / 43)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+11
+normal! 08|
 tabedit src/app/preferences/index.ts
 set splitbelow splitright
 set nosplitbelow
@@ -167,13 +191,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 21 - ((9 * winheight(0) + 21) / 43)
+let s:l = 20 - ((11 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 03|
-tabedit src/app/header/header.tsx
+20
+normal! 0
+tabedit src/app/miscellaneous/index.ts
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -192,12 +216,37 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 77 - ((28 * winheight(0) + 21) / 43)
+let s:l = 1 - ((0 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-77
-normal! 025|
+1
+normal! 079|
+tabedit src/app/header/header.jss.ts
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 22 - ((21 * winheight(0) + 21) / 43)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+22
+normal! 035|
 tabedit src/app/i18n/en/en.ts
 set splitbelow splitright
 set nosplitbelow
@@ -298,7 +347,7 @@ exe s:l
 normal! zt
 25
 normal! 055|
-tabnext 2
+tabnext 7
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

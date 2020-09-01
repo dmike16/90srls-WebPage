@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import headerStyles from './header.jss';
 import { Typography, MenuItem, Menu, Button, useTheme } from '@material-ui/core';
-import { HideOnScroll } from '../miscellaneous';
+import { MutateOnScroll } from '../miscellaneous';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { supportedLanguages } from '../i18n';
 import { DispatchContext } from '../preferences';
@@ -51,41 +51,52 @@ export default function Sd90srlsHeader() {
       <BrightnessHighIcon />
     </IconButton>)
 
+  const beforeScroll = {
+    elevation: 0,
+    className: classes.header_transparent
+  };
+  const afterScroll = {
+    elevation: 4,
+    className: classes.header
+  };
+
 
   return (
-    <HideOnScroll>
-      <AppBar position="sticky" className={classes.header}>
-        <Toolbar>
-          <Logo className={classes.logo} />
-          <Typography className={classes.title} variant="h3">
-            {t('header.title')}
-          </Typography>
-          <Button 
-            ref={anchorRef}
-            color="inherit" 
-            aria-controls="language-menu" 
-            aria-haspopup="true"
-            startIcon= {<TranslateIcon/>}
-            onClick={reactToLangClick}>
-            {t(`lang.${selectedLang}`)}
-          </Button>
-          <Menu id="language-menu" 
-            keepMounted
-            anchorEl={anchorRef.current}
-            open={openLangMenu} 
-            onClose={reactToCloseLangMenu}>
-            {supportedLanguages.map((k, idx) => <MenuItem 
-              key={k} 
-              disabled={k === selectedLang}
-              selected={k === selectedLang}
-              onClick={() => reactToClosLangItem(idx)}>{t(`lang.${k}`)}</MenuItem>)}
-            </Menu>
-            <IconButton aria-label={t('header.cookie')} color="inherit">
-              <MoreVertIcon />
-            </IconButton>
-            {iconChangeThemeButton}
+    <>
+      <MutateOnScroll before={beforeScroll} after={afterScroll}>
+        <AppBar position="sticky">
+          <Toolbar>
+            <Logo className={classes.logo} />
+            <Typography className={classes.title} variant="h3">
+              {t('header.title')}
+            </Typography>
+            <Button 
+              ref={anchorRef}
+              color="inherit" 
+              aria-controls="language-menu" 
+              aria-haspopup="true"
+              startIcon= {<TranslateIcon/>}
+              onClick={reactToLangClick}>
+              {t(`lang.${selectedLang}`)}
+            </Button>
+            <Menu id="language-menu" 
+              keepMounted
+              anchorEl={anchorRef.current}
+              open={openLangMenu} 
+              onClose={reactToCloseLangMenu}>
+              {supportedLanguages.map((k, idx) => <MenuItem 
+                key={k} 
+                disabled={k === selectedLang}
+                selected={k === selectedLang}
+                onClick={() => reactToClosLangItem(idx)}>{t(`lang.${k}`)}</MenuItem>)}
+              </Menu>
+              <IconButton aria-label={t('header.cookie')} color="inherit">
+                <MoreVertIcon />
+              </IconButton>
+              {iconChangeThemeButton}
           </Toolbar>
         </AppBar>
-      </HideOnScroll>
-    );
+      </MutateOnScroll>
+    </>
+  );
 }
