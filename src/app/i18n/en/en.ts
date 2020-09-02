@@ -12,6 +12,10 @@ const translation = {
       theme: 'theme switcher',
       title: '90srls',
     },
+    banner: {
+      title: 'Automotive Consulting Room',
+        subTitle: 'We do the best to save your time with our proficiency'
+    },
     footer: {
       title: '90srls',
       copyright: `This work is under Creative Commons Attribuzione 4.0 Internazionale`,

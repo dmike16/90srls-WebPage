@@ -4,9 +4,10 @@ export default function footerJss(theme: Theme) {
     footer: {
       padding: theme.spacing(3, 2),
       marginTop: 'auto',
+      color: theme.palette.common.white,
       backgroundColor:
       theme.palette.type === 'light' ? 
-      theme.palette.primary.contrastText : theme.palette.background.paper
+      theme.palette.primary.main : theme.palette.background.paper
     },
     title: {
       flex: '0 0 auto',
@@ -17,7 +18,8 @@ export default function footerJss(theme: Theme) {
       flexDirection: 'row',
       flexWrap: 'nowrap',
       alignItems: 'baseline',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      marginBottom: theme.spacing(2)
     },
     links: {
       display: 'flex',

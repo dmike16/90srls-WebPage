@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {makeStyles, Container, Typography, Divider, Link } from '@material-ui/core';
+import {makeStyles, Container,  Divider, Link } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import footerJss from './footer.jss';
@@ -27,7 +27,7 @@ export default function Sd90srlsFooter() {
              </Link>
            </div>
         </div>
-        <Divider variant="middle"/>
+        <Divider variant="middle" light/>
         <Sd90srlsCopyright/>
       </Container>
     </footer>

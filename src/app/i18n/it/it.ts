@@ -12,6 +12,10 @@ const translation = {
       theme: 'cambio tema',
       title: '90srls',
     },
+    banner: {
+      title: 'Studio di Consulenza Automobilistica',
+      subTitle: 'Facciamo di tutto per farti risparmiare tempo con la nostra professionalità'
+    },
     footer: {
       title: '90srls',
       copyright: `Quest'opera e' distribuita con licenza Creative Commons Attribuzione 4.0 Internazionale`,

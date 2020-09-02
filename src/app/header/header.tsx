@@ -16,6 +16,7 @@ import TranslateIcon from '@material-ui/icons/Translate';
 import { supportedLanguages } from '../i18n';
 import { DispatchContext } from '../preferences';
 import { SWITCH_THEME } from '../preferences/theme/theme-action';
+import Sd90Banner from '../logo/banner/banner';
 
 const useStyle = makeStyles(headerStyles);
 
@@ -62,7 +63,7 @@ export default function Sd90srlsHeader() {
 
 
   return (
-    <>
+    <Sd90Banner>
       <MutateOnScroll before={beforeScroll} after={afterScroll}>
         <AppBar position="sticky">
           <Toolbar>
@@ -97,6 +98,6 @@ export default function Sd90srlsHeader() {
           </Toolbar>
         </AppBar>
       </MutateOnScroll>
-    </>
+    </Sd90Banner>
   );
 }
