@@ -17,7 +17,11 @@
     "lib": [
       "ESNEXT",
       "DOM"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
     "include": [
     "./**/*.ts"

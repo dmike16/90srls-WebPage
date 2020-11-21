@@ -11,10 +11,6 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  },
-  "files": [
-    "main.ts",
-    "polyfill.ts"
-  ]
+    ],
+  }
 }
