@@ -14,4 +14,4 @@ const router = new workbox.routing.Router();
 router.registerRoute({ route });*/
 
 //will be filled by workbox-build.injectManifest()
-workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);

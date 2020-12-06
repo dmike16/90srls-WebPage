@@ -6,8 +6,7 @@ import broswer from "../tools/webpack/create-config/broswer";
 import serve from "../tools/webpack/create-config/serve";
 import { webpackServer } from "../tools/webpack/dev-serve";
 import babel from "../tools/webpack/create-config/babel";
-
-const merge = require('webpack-merge');
+import {merge} from 'webpack-merge';
 
 export default async function (args: any, log: Logger) {
     const key = process.env.WEBPACK_SERVE_HTTPS_KEY || null;
@@ -23,7 +22,7 @@ export default async function (args: any, log: Logger) {
         , assets(mode)
         , styles(mode)
         , broswer(mode)
-        , babel(mode)
+//        , babel(mode)
         , serve(cert, key, mode === 'development')
     ];
 

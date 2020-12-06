@@ -1,6 +1,8 @@
 import { readFileSync } from "fs";
+import * as webpack from "webpack";
 
-export default function (cert: string, key: string, hot = true): { devServer: any } {
+
+export default function (cert: string, key: string, hot = true): webpack.Configuration {
     return {
         devServer: {
             host: 'localhost',
@@ -12,5 +14,5 @@ export default function (cert: string, key: string, hot = true): { devServer: an
             port: 4200,
             hot
         }
-    };
+    } as any;
 }

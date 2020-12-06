@@ -19,7 +19,7 @@ export type HashStyle = { file: string, chunk: string };
 export type ModeStyle = 'development' | 'production';
 
 export function sourceMapStyle(mode: 'development' | 'production') {
-    return mode === 'development' ? 'cheap-module-eval-source-map' : 'cheap-module-source-map';
+    return mode === 'development' ? 'eval-cheap-module-source-map' : 'cheap-module-source-map';
 }
 
 export function mainFiledsResolve(target: 'es5' | 'es2015'): string[] {
