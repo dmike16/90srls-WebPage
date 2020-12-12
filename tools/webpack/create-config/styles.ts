@@ -25,16 +25,16 @@ export default function (mode: ModeStyle): webpack.Configuration {
     , {}
   );
 
-  const resolveLoader = {
-    modules: ['node_modules'],
-    mainFields: ['loader', 'main'],
-    alias: pkg.buildCtx.extractCss ? {
-      'css-raw-loader': require.resolve(join(__dirname, "..", "css-raw-loader"))
-    } : {}
-  };
+  // const resolveLoader = {
+  //   modules: ['node_modules'],
+  //   mainFields: ['loader', 'main'],
+  //   alias: pkg.buildCtx.extractCss ? {
+  //     'css-raw-loader': require.resolve(join(__dirname, "..", "css-raw-loader"))
+  //   } : {}
+  // };
   return {
     entry: stylesEntryPoint,
-    resolveLoader,
+    // resolveLoader,
     optimization: {
       minimizer: [
         ...(pkg.buildCtx.optimizeCss ? [new OptimizeCSSAssetsPlugin(
@@ -56,7 +56,8 @@ export default function (mode: ModeStyle): webpack.Configuration {
           test: /\.scss$/,
           use: [
             {loader: pkg.buildCtx.extractCss ? MiniCssExtractPlugin.loader : 'style-loader'},
-            {loader: pkg.buildCtx.extractCss ? 'css-raw-loader' : 'raw-loader'}, // FIXME(dmike16): check the correct behavoir when used in combination with MiniCssExtract
+            // {loader: pkg.buildCtx.extractCss ? 'css-raw-loader' : 'raw-loader'}, // FIXME(dmike16): check the correct behavoir when used in combination with MiniCssExtract
+            {loader: 'css-loader', options: {importLoaders: 2}},
             {
               loader: 'postcss-loader'
               , options: {
@@ -86,7 +87,7 @@ export default function (mode: ModeStyle): webpack.Configuration {
 }
 
 function postcssPlugins(loader: any): any[] {
-    return [
-        autoprefixer({ grid: true })
-    ]
+  return [
+    autoprefixer({grid: true})
+  ]
 }

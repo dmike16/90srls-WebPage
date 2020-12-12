@@ -1,6 +1,7 @@
 import {ModeStyle} from "./utils";
 import * as webpack from "webpack";
 import pkg from "../../../lib/package";
+import {DefinePlugin} from "webpack";
 
 const workbox = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -40,7 +41,7 @@ export default function (mode: ModeStyle): webpack.Configuration {
       ]
     },
     optimization: {
-      minimize: true,
+      minimize: mode === 'production',
       minimizer: [new TerserPlugin({
         parallel: mode === 'production',
         terserOptions
@@ -74,6 +75,11 @@ export default function (mode: ModeStyle): webpack.Configuration {
       new HtmlWebpackPlugin({
         template: "index.html",
         xhtml: true
+      }),
+      new DefinePlugin({
+        __VUE_OPTIONS_API__: JSON.stringify(true),
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+        __90SRLS_DEV_MODE__: JSON.stringify(mode === 'development')
       }),
       ...extracPlugin
     ]

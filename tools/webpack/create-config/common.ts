@@ -1,7 +1,7 @@
-import pkg from "../../../lib/package";
-import {hashFormatStyle, sourceMapStyle, mainFiledsResolve, ModeStyle} from "./utils";
-import * as webpack from "webpack";
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
+import * as webpack from "webpack";
+import pkg from "../../../lib/package";
+import {hashFormatStyle, mainFiledsResolve, ModeStyle, sourceMapStyle} from "./utils";
 
 export default function (mode: ModeStyle): webpack.Configuration {
   const hashStyle = hashFormatStyle(mode === 'development' ? 'none' : 'all');
@@ -17,11 +17,8 @@ export default function (mode: ModeStyle): webpack.Configuration {
     devtool: sourceMapStyle(mode),
     // development :'cheap-module-eval-source-map' -- production:'cheap-module-source-map',
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      extensions: ['.ts', '.tsx', '.vue', '.vuex', '.js', '.jsx'],
       mainFields: mainFiledsResolve(pkg.buildCtx.target),
-      alias: mode === 'development' ? {
-        'react-dom': '@hot-loader/react-dom'
-      } : {}
     },
     module: {
       rules: [
