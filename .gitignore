@@ -65,3 +65,13 @@ ssl.location.json
 #js in src
 dist/
 build/
+
+#PnP
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
+.pnp/
+
+# vim settings
+.vim/
