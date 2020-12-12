@@ -10,10 +10,6 @@
     "noImplicitAny": true,
     "target": "esnext",
     "module": "commonjs",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
-    ],
     "lib": [
       "ESNEXT",
       "DOM"
