@@ -2,6 +2,8 @@ import {ModeStyle} from "./utils";
 import * as webpack from "webpack";
 import pkg from "../../../lib/package";
 import {DefinePlugin} from "webpack";
+import {join} from "path";
+import {readFileSync} from "fs";
 
 const workbox = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -73,7 +75,7 @@ export default function (mode: ModeStyle): webpack.Configuration {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "index.html",
+        templateContent: readFileSync(join(pkg.buildCtx.src, 'index.html'), 'utf-8'),
         xhtml: true
       }),
       new DefinePlugin({

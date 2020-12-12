@@ -1,7 +1,6 @@
-import {ModeStyle, hashFormatStyle} from "./utils";
 import * as webpack from "webpack";
 import pkg from "../../../lib/package";
-import {join} from "path";
+import {hashFormatStyle, ModeStyle} from "./utils";
 
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');

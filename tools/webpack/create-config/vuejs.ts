@@ -3,6 +3,7 @@ import {VueLoaderPlugin} from "vue-loader"
 import {ModeStyle} from "./utils";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import {join} from "path";
+import ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 import pkg from "../../../lib/package";
 
 export default function vuejs(mode: ModeStyle): Configuration {
@@ -26,6 +27,7 @@ export default function vuejs(mode: ModeStyle): Configuration {
           use: [{
             loader: 'ts-loader',
             options: {
+              transpileOnly: true,
               appendTsSuffixTo: [/\.vue$/]
             }
           }]
@@ -34,7 +36,19 @@ export default function vuejs(mode: ModeStyle): Configuration {
       ]
     },
     plugins: [
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        async: mode === 'development',
+        typescript: {
+          configFile: join(pkg.buildCtx.src, pkg.buildCtx.config),
+          extensions: {
+            vue: {
+              enabled: true,
+              compiler: '@vue/compiler-sfc'
+            }
+          }
+        }
+      })
     ]
   }
 }

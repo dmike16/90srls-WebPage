@@ -3,18 +3,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent  } from "vue";
+import { Vue } from "vue-class-component";
 /**
  * Studio90srls main class
  */
-const studio90srls = defineComponent({
-  data() {
-    return {
-      message: "Hello Vue js (from custom webpack config)",
-    };
-  },
-});
 
-export default studio90srls;
+export default class Studio90srls extends Vue {
+  message: string = "Hello Vue js (from custmo webpack config)";
+}
 </script>
 
