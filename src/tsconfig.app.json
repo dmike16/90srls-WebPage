@@ -3,14 +3,15 @@
   "compilerOptions": {
     "outDir": "./build/app",
     "module": "esnext",
+    "target": "esnext",
     "strict": true,
     "jsx": "preserve",
-    "types": [
-      "node"
-    ],
     "lib": [
       "es2018",
       "dom"
-    ],
-  }
+    ]
+  },
+  "include": [
+    "./**/*.ts"
+  ]
 }
