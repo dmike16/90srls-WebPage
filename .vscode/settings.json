@@ -6,5 +6,6 @@
   "eslint.nodePath": ".yarn/sdks",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "flow.pathToFlow": "${workspaceFolder}/.yarn/sdks/flow-bin/cli.js"
+  "flow.pathToFlow": "${workspaceFolder}/.yarn/sdks/flow-bin/cli.js",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js"
 }
