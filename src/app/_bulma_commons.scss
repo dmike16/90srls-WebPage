@@ -1,11 +1,19 @@
 @import './variables';
 // Import only what you need from Bulma
+//
+// Utility;
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
+// Elements
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/elements/title.sass";
+// Form
 @import "~bulma/sass/form/_all.sass";
+// Component
 @import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/level.sass";
+// Layout
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/layout/section.sass";
+@import "~bulma/sass/layout/footer.sass";
