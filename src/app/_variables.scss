@@ -6,7 +6,7 @@ $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 $blue: #01579b;
 $black: #181e25;
-$black-bis: #002f6c;
+$black-bis: #02533b;
 $black-ter: #002f6c;
 $green: #3dbe61;
 $white: #f4f4f4;
@@ -16,7 +16,8 @@ $white-ter: #f4f4f4;
 // Update Bulma's global variables
 $family-sans-serif: "Roboto", sans-serif;
 $primary: $blue;
-$link: $green;
+$link: $beige-light;
+$link-hover: $beige-lighter;
 $dark: $black;
 $text: $white;
 $text-light: $white-bis;
